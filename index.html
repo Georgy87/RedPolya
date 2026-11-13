@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RedPolya - Маркетинговый обзор</title>
+<meta name="description" content="RedPolya - драм-машина, которая заменяет целую цепочку плагинов: собирает бит, формирует его звучание, придаёт ему характер старой записи и заставляет звуки двигаться вокруг слушателя.">
+<meta property="og:title" content="RedPolya: всё для своего бита в одной драм-машине">
+<meta property="og:image" content="images/overview.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;family=Playfair+Display:ital,wght@1,400&amp;display=swap">
+<style>
+body{margin:0;background:#F2F2EF;color:#0B0B0B;-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth}
+a{color:#0B0B0B}a:hover{color:#555555}
+::selection{background:#0B0B0B;color:#F2F2EF}
+.rp{font-family:'Inter Tight',system-ui,sans-serif}
+.rp *{box-sizing:border-box}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:500}
+.serif{font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:400}
+.wrap{max-width:1280px;margin:0 auto;padding-left:clamp(20px,4vw,56px);padding-right:clamp(20px,4vw,56px)}
+.sec{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;border-top:1px solid #0B0B0B;padding-top:28px}
+.sec-h{grid-column:span 4}
+.sec-b{grid-column:5 / span 8;display:flex;flex-direction:column;gap:28px;min-width:0}
+.stick{position:sticky;top:88px}
+.p{margin:0;font-size:19px;line-height:1.6}
+.ul{list-style:none;margin:0;padding:0;border-top:1px solid #0B0B0B}
+.ul li{display:grid;grid-template-columns:36px minmax(0,1fr);gap:8px;padding:18px 0;border-bottom:1px solid rgba(11,11,11,.18);font-size:18px;line-height:1.5}
+.ul li::before{content:"";width:8px;height:8px;background:#0B0B0B;margin-top:10px}
+.ol li::before{content:none}
+.box{background:#0B0B0B;color:#F2F2EF;padding:clamp(24px,3vw,40px);margin:0;font-size:clamp(21px,2vw,27px);line-height:1.4;font-weight:500;letter-spacing:-.015em}
+.h3{margin:0;font-size:clamp(26px,2.6vw,36px);line-height:1.12;letter-spacing:-.035em;font-weight:700}
+.ph{margin:0}
+.ph .im{overflow:hidden;background:#0B0B0B}
+.ph img{display:block;width:100%;height:auto;filter:grayscale(1) contrast(1.06);transition:filter .8s cubic-bezier(.16,1,.3,1),transform 1s cubic-bezier(.16,1,.3,1)}
+.ph:hover img{filter:grayscale(0) contrast(1);transform:scale(1.012)}
+.ph figcaption{margin-top:12px;font-size:15px;line-height:1.5;color:#555555}
+.tw{overflow-x:auto;border-top:1px solid #0B0B0B}
+.tbl{width:100%;border-collapse:collapse;font-size:15px}
+.tbl th,.tbl td{padding:14px 10px;border-bottom:1px solid rgba(11,11,11,.18);text-align:center;vertical-align:middle;font-weight:400}
+.tbl th:first-child,.tbl td:first-child{text-align:left;padding-left:0}
+.tbl thead th{font-weight:600;vertical-align:bottom}
+.tbl tbody tr{transition:background .25s}
+.tbl tbody tr:hover{background:rgba(11,11,11,.05)}
+.tbl .rpc{background:#0B0B0B;color:#F2F2EF}
+.tbl .tot td,.tbl .tot th{font-weight:800;font-size:22px;border-bottom:none}
+.t3 th,.t3 td{text-align:left !important;vertical-align:top;line-height:1.5}
+.t3 td:first-child{font-weight:600}
+.no{opacity:.4}
+@supports (animation-timeline: view()){
+.rv{animation:rvIn linear both;animation-timeline:view();animation-range:entry 0% cover 22%}
+}
+@keyframes rvIn{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:none}}
+.ln{display:block;overflow:hidden}
+.ln>span{display:block;animation:lnUp 1.2s cubic-bezier(.16,1,.3,1) both}
+.d2>span{animation-delay:.12s}
+@keyframes lnUp{from{transform:translateY(105%)}to{transform:none}}
+@media (max-width:900px){
+.sec-h,.sec-b{grid-column:1 / -1 !important}
+.stick{position:static}
+.navlinks{display:none !important}
+}
+@media (prefers-reduced-motion:reduce){.rp *{animation:none !important;transition:none !important}}
+</style>
+</head>
+<body>
+<div class="rp" id="top" style="width: 100%; min-height: 100vh;">
+
+<header style="position: sticky; top: 0; z-index: 20; background: rgba(242,242,239,.92); backdrop-filter: blur(8px); border-bottom: 1px solid #0B0B0B;">
+<div class="wrap" style="display: flex; align-items: center; justify-content: space-between; gap: 24px; height: 64px;">
+<a href="#top" style="font-weight: 800; font-size: 19px; letter-spacing: -0.03em; text-decoration: none;">RedPolya</a>
+<nav class="navlinks mono" aria-label="Разделы" style="display: flex; gap: 24px; flex-wrap: wrap;">
+<a href="#s1" style="text-decoration: none;">1. Суть</a>
+<a href="#s2" style="text-decoration: none;">2. Проблема</a>
+<a href="#s3" style="text-decoration: none;">3. Решение</a>
+<a href="#s4" style="text-decoration: none;">4. Преимущества</a>
+<a href="#s5" style="text-decoration: none;">5. Сравнение</a>
+</nav>
+<span class="mono">REDPOLYA / MARKETING</span>
+</div>
+</header>
+
+<section class="wrap" style="padding-top: clamp(56px, 8vw, 128px); padding-bottom: clamp(48px, 6vw, 96px);">
+<p class="mono" style="margin: 0 0 28px;">RedPolya · Маркетинговый обзор</p>
+<h1 style="margin: 0; font-weight: 800; letter-spacing: -0.055em; line-height: 0.92;">
+<span class="ln" style="font-size: clamp(64px, 13vw, 200px);"><span>RedPolya:</span></span>
+<span class="ln d2" style="font-size: clamp(32px, 5.4vw, 84px); font-weight: 500; letter-spacing: -0.045em; line-height: 1.02;"><span>всё для <span class="serif">своего бита</span> в одной драм-машине</span></span>
+</h1>
+</section>
+
+<main class="wrap" style="display: flex; flex-direction: column; gap: clamp(72px, 9vw, 136px); padding-bottom: clamp(80px, 10vw, 160px);">
+
+<section id="s1" class="sec">
+<div class="sec-h"><div class="stick"><p class="mono" style="margin: 0 0 10px;">01</p><h2 class="h3">1. Суть одной фразой</h2></div></div>
+<div class="sec-b">
+<p class="box rv">RedPolya - драм-машина, которая заменяет целую цепочку плагинов: собирает бит, формирует его звучание, придаёт ему характер старой записи и заставляет звуки двигаться вокруг слушателя.</p>
+<ul class="ul">
+<li class="rv"><span><strong>6 из 6</strong> ключевых возможностей в одном инструменте. У ближайших конкурентов - не больше двух.</span></li>
+<li class="rv"><span><strong>Одна ручка MORPH</strong> превращает короткие удары в протяжённое звучание. Бит при этом остаётся тем же.</span></li>
+<li class="rv"><span><strong>Каждый голос живёт в 3D:</strong> бочка в центре, хэты кружат вокруг слушателя.</span></li>
+<li class="rv"><span><strong>Винтаж встроен:</strong> плёнка, винил и пыль без отдельного плагина.</span></li>
+</ul>
+<figure class="ph rv">
+<div class="im"><img loading="lazy" src="images/overview.webp" alt="Интерфейс RedPolya: секвенсор, настройка голоса и положение вокруг слушателя" width="1560" height="1012"></div>
+<figcaption class="serif">Всё в одном окне: секвенсор на восемь дорожек, настройка голоса и его положение вокруг слушателя.</figcaption>
+</figure>
+</div>
+</section>
+
+<section id="s2" class="sec">
+<div class="sec-h"><div class="stick"><p class="mono" style="margin: 0 0 10px;">02</p><h2 class="h3">2. Проблема музыканта</h2></div></div>
+<div class="sec-b">
+<p class="p rv" style="font-size: clamp(22px, 2vw, 28px); line-height: 1.35; letter-spacing: -0.02em; font-weight: 500;">Битмейкер придумал ритм. Дальше начинается рутина, которая убивает вдохновение:</p>
+<ol class="ul ol">
+<li class="rv"><span class="mono" style="padding-top: 4px;">01</span><span>Синтезатор для своих звуков и семплер для своих записей.</span></li>
+<li class="rv"><span class="mono" style="padding-top: 4px;">02</span><span>Отдельный плагин, чтобы добавить плёнку, винил и пыль.</span></li>
+<li class="rv"><span class="mono" style="padding-top: 4px;">03</span><span>Ещё один плагин, чтобы расставить звуки вокруг слушателя, и ручная автоматизация, чтобы они двигались.</span></li>
+<li class="rv"><span class="mono" style="padding-top: 4px;">04</span><span>Гранулярный эффект, чтобы из ударов получить протяжённый фон.</span></li>
+</ol>
+<p class="p rv">Это четыре окна, маршрутизация, настройка каждого плагина и проект, который разваливается при переносе на другой компьютер. Пока музыкант всё это собирает, идея уходит.</p>
+</div>
+</section>
+
+<section id="s3" class="sec">
+<div class="sec-h"><div class="stick"><p class="mono" style="margin: 0 0 10px;">03</p><h2 class="h3">3. Решение</h2></div></div>
+<div class="sec-b">
+<p class="p rv" style="font-size: clamp(22px, 2vw, 28px); line-height: 1.35; letter-spacing: -0.02em; font-weight: 500;">RedPolya убирает эту цепочку. Всё, что раньше требовало четырёх плагинов, встроено в одну драм-машину и работает в темпе бита.</p>
+<p class="p rv">Музыкант запускает бит и формирует его звучание прямо во время воспроизведения: укорачивает и удлиняет звуки, состаривает запись, расставляет и двигает инструменты вокруг слушателя.</p>
+<p class="p rv" style="border-left: 2px solid #0B0B0B; padding-left: 20px;">Например: бочка и бас держат основу, хэты кружат вокруг слушателя, из клэпа вырастает протяжённый фон, а AGE придаёт всему биту характер затёртой кассеты. Всё это - в одном окне, за пару минут.</p>
+<p class="p rv" style="font-weight: 600;">Что получает музыкант:</p>
+<ul class="ul">
+<li class="rv"><span><strong>Скорость.</strong> Идея звучит сразу, без настройки цепочки эффектов.</span></li>
+<li class="rv"><span><strong>Свой звук.</strong> Синтез плюс свои семплы, MORPH, AGE и 3D дают звучание, которого нет в чужих библиотеках.</span></li>
+<li class="rv"><span><strong>Надёжность.</strong> Бит, семплы, обработка и движение сохраняются в одном проекте и одном пресете.</span></li>
+</ul>
+</div>
+</section>
+
+<section id="s4" class="sec">
+<div class="sec-h"><div class="stick"><p class="mono" style="margin: 0 0 10px;">04</p><h2 class="h3">4. Три главных преимущества</h2></div></div>
+<div class="sec-b" style="gap: 72px;">
+
+<div style="display: flex; flex-direction: column; gap: 28px;">
+<h3 class="rv" style="margin: 0; font-size: clamp(34px, 4vw, 56px); line-height: 1; letter-spacing: -0.045em; font-weight: 800;">MORPH <span class="serif" style="font-weight: 400; letter-spacing: -0.02em;">- от короткого удара до протяжённого звука одной ручкой</span></h3>
+<ul class="ul">
+<li class="rv"><span>Одна ручка меняет сразу всё: тембр, длину звуков, движение в пространстве и грув.</span></li>
+<li class="rv"><span>Вместе с HOLD к середине хода звуки становятся короткими и чёткими, к правому краю - протяжёнными и атмосферными.</span></li>
+<li class="rv"><span>Шаги и ноты остаются на месте. Музыкант меняет звучание, не теряя бит.</span></li>
+<li class="rv"><span>Можно выбрать, какие голоса меняются, а какие держат свои настройки.</span></li>
+<li class="rv"><span>Кнопка DICE выдаёт новое направление звучания. Номер варианта сохраняется с проектом, поэтому удачная находка не потеряется.</span></li>
+</ul>
+<figure class="ph rv">
+<div class="im"><img loading="lazy" src="images/morph.webp" alt="Панель MORPH: большая ручка, кнопки DICE и HOLD, выбор голосов" width="1560" height="1012"></div>
+<figcaption class="serif">Одна большая ручка MORPH, кнопки DICE и HOLD и выбор голосов, которые за ней следуют.</figcaption>
+</figure>
+<p class="p rv"><strong>Почему это сильнее конкурентов:</strong> морфинг Microtonic и Visco меняет тембр. MORPH в RedPolya меняет ещё и длину звуков, их место в пространстве и грув.</p>
+<p class="p rv"><strong>Для музыканта:</strong> <span class="serif" style="font-size: 1.15em;">«Придумал ритм и за минуту услышал десять вариантов его звучания».</span></p>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 28px;">
+<h3 class="rv" style="margin: 0; font-size: clamp(34px, 4vw, 56px); line-height: 1; letter-spacing: -0.045em; font-weight: 800;">3D <span class="serif" style="font-weight: 400; letter-spacing: -0.02em;">- звуки двигаются вокруг слушателя в такт музыке</span></h3>
+<ul class="ul">
+<li class="rv"><span>Каждый голос ставится в любую точку: слева, справа, сзади, сверху.</span></li>
+<li class="rv"><span>Траектории движения: качание, круг, восьмёрка, приближение и удаление. Всё синхронизировано с темпом, без ручной автоматизации.</span></li>
+<li class="rv"><span>Облако GRAIN превращает фрагменты звучащих инструментов в повторения и протяжённые звуки и двигает их в пространстве отдельно от основных голосов.</span></li>
+<li class="rv"><span>Основа остаётся устойчивой, окружение движется свободно.</span></li>
+<li class="rv"><span>В наушниках бит звучит объёмно, а не «внутри головы».</span></li>
+</ul>
+<figure class="ph rv">
+<div class="im"><img loading="lazy" src="images/space-orbit.webp" alt="Панель SPATIAL POSITION: вид сверху и сбоку, хэт на орбите" width="1560" height="1012"></div>
+<figcaption class="serif">Каждый голос ставится мышью на виде сверху и сбоку. Хэт движется по орбите в такт биту.</figcaption>
+</figure>
+<figure class="ph rv">
+<div class="im"><img loading="lazy" src="images/grain-3d.webp" alt="Панель GRAIN / CLOUD: посылы голосов и режим движения" width="1560" height="1012"></div>
+<figcaption class="serif">Облако GRAIN: посыл с каждого голоса и режим движения частиц в пространстве.</figcaption>
+</figure>
+<p class="p rv"><strong>Почему это сильнее конкурентов:</strong> из драм-машин в сравнении размещение голосов вокруг слушателя есть только у браузерной Azimuth Drums. RedPolya даёт это в Logic Pro и добавляет движущееся облако GRAIN, которого нет ни у кого.</p>
+<p class="p rv"><strong>Для музыканта:</strong> <span class="serif" style="font-size: 1.15em;">«Бочка держит центр, хэты кружат вокруг тебя, а повторения клэпа вспыхивают в разных точках пространства».</span></p>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 28px;">
+<h3 class="rv" style="margin: 0; font-size: clamp(34px, 4vw, 56px); line-height: 1; letter-spacing: -0.045em; font-weight: 800;">AGE <span class="serif" style="font-weight: 400; letter-spacing: -0.02em;">- плёнка, винил и пыль прямо в драм-машине</span></h3>
+<ul class="ul">
+<li class="rv"><span>Пять секций: пыль и шум (Tape / Vinyl / Radio), плавание плёнки, тёплый перегруз, цифровое огрубление и износ записи.</span></li>
+<li class="rv"><span>Готовые характеры: «тёплая плёнка», «пыльный семплер», «затёртая кассета» и другие.</span></li>
+<li class="rv"><span>Одна ручка AGE задаёт глубину эффекта, отдельные ручки дают точную настройку.</span></li>
+<li class="rv"><span>AGE обрабатывает уже сведённое пространство, поэтому весь бит звучит как одна старая запись.</span></li>
+<li class="rv"><span>Настройки сохраняются вместе с проектом и пресетом.</span></li>
+</ul>
+<figure class="ph rv">
+<div class="im"><img loading="lazy" src="images/age.webp" alt="Панель AGE: большая ручка и пять секций состаривания" width="1560" height="1012"></div>
+<figcaption class="serif">Большая ручка AGE и пять секций состаривания с выбором характера.</figcaption>
+</figure>
+<p class="p rv"><strong>Почему это сильнее конкурентов:</strong> Battery 4 и Knight Drum 2 тоже умеют состаривать звук, но в них нет ни MORPH, ни движения голосов вокруг слушателя. В RedPolya винтаж работает вместе со всем остальным.</p>
+<p class="p rv"><strong>Для музыканта:</strong> <span class="serif" style="font-size: 1.15em;">«Собрал чистый бит и одним движением сделал из него запись с пыльной кассеты».</span></p>
+</div>
+
+<p class="p rv" style="border-top: 1px solid #0B0B0B; padding-top: 24px; font-size: clamp(21px, 1.9vw, 26px); line-height: 1.4; letter-spacing: -0.015em; font-weight: 500;">У каждой секции - MORPH, GRAIN, SPACE и AGE - свои ручки. Быстрый результат одной ручкой и полный контроль, когда он нужен.</p>
+</div>
+</section>
+
+<section id="s5" class="sec">
+<div class="sec-h"><div class="stick"><p class="mono" style="margin: 0 0 10px;">05</p><h2 class="h3">5. Сравнение с конкурентами</h2></div></div>
+<div class="sec-b">
+<p class="p rv" style="color: #555555;">Сравнение составлено по официальным описаниям производителей на 13.11.2026.</p>
+
+<h3 class="h3 rv" style="font-size: 24px; margin-top: 16px;">5.1. Главное преимущество</h3>
+<p class="box rv">RedPolya - единственная драм-машина в этом сравнении, где в одном инструменте есть всё: синтез и свои семплы, морфинг набора, положение и движение каждого голоса вокруг слушателя, гранулярное облако в пространстве и винтажная окраска.</p>
+<p class="p rv">Конкуренты закрывают одно-два направления. RedPolya закрывает все шесть.</p>
+</div>
+</section>
+
+<section class="rv" style="display: flex; flex-direction: column; gap: 20px; margin-top: calc(-1 * clamp(32px, 5vw, 80px));">
+<h3 class="h3" style="font-size: 24px;">5.2. Сводная таблица</h3>
+<div class="tw">
+<table class="tbl" style="min-width: 960px;">
+<thead>
+<tr>
+<th scope="col" style="width: 30%;"></th>
+<th scope="col" class="rpc">RedPolya</th>
+<th scope="col">XO</th>
+<th scope="col">Microtonic</th>
+<th scope="col">Visco</th>
+<th scope="col">Battalion</th>
+<th scope="col">Battery 4</th>
+<th scope="col">Knight Drum 2</th>
+<th scope="col">Azimuth Drums</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row" style="font-weight: 400;">Синтез и свои семплы в одном инструменте</th>
+<td class="rpc"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" role="img" aria-label="есть"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"></path></svg></td><td><span class="no" aria-label="не заявлено">—</span></td><td><span class="no" aria-label="не заявлено">—</span></td><td><svg width="18" height="18" viewBox="0 0 20 20" fill="none" role="img" aria-label="есть"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"></path></svg></td><td><svg width="18" height="18" viewBox="0 0 20 20" fill="none" role="img" aria-label="есть"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"></path></svg></td><td><span class="no" aria-label="не заявлено">—</span></td><td><svg width="18" height="18" viewBox="0 0 20 20" fill="none" role="img" aria-label="есть"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"></path></svg></td><td><span class="no" aria-label="не заявлено">—</span></td>
+</tr>
+<tr>
+<th scope="row" style="font-weight: 400;">Морфинг звучания набора</th>
+<td class="rpc"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" role="img" aria-label="есть"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"></path></svg></td><td><span class="no" aria-label="не заявлено">—</span></td><td><svg width="18" height="18" viewBox="0 0 20 20" fill="none" role="img" aria-label="есть"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"></path></svg></td><td><svg width="18" height="18" viewBox="0 0 20 20" fill="none" role="img" aria-label="есть"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"></path></svg></td><td><span class="no" aria-label="не заявлено">—</span></td><td><span class="no" aria-label="не заявлено">—</span></td><td><span class="no" aria-label="не заявлено">—</span></td><td><span class="no" aria-label="не заявлено">—</span></td>
+</tr>
+<tr>
+<th scope="row" style="font-weight: 400;">Положение каждого голоса вокруг слушателя</th>
+<td class="rpc"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" role="img" aria-label="есть"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"></path></svg></td><td><span class="no" aria-label="не заявлено">—</span></td><td><span class="no" aria-label="не заявлено">—</span></td><td><span class="no" aria-label="не заявлено">—</span></td><td><span class="no" aria-label="не заявлено">—</span></td><td><span class="no" aria-label="не заявлено">—</span></td><td><span class="no" aria-label="не заявлено">—</span></td><td><svg width="18" height="18" viewBox="0 0 20 20" fill="none" role="img" aria-label="есть"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"></path></svg></td>
+</tr>
+<tr>
+<th scope="row" style="font-weight: 400;">Движение голосов вокруг слушателя</th>
+<td class="rpc"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" role="img" aria-label="есть"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"></path></svg></td><td><span class="no" aria-label="не заявлено">—</span></td><td><span class="no" aria-label="не заявлено">—</span></td><td><span class="no" aria-label="не заявлено">—</span></td><td><span class="no" aria-label="не заявлено">—</span></td><td><span class="no" aria-label="не заявлено">—</span></td><td><span class="no" aria-label="не заявлено">—</span></td><td><svg width="18" height="18" viewBox="0 0 20 20" fill="none" role="img" aria-label="есть"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"></path></svg></td>
+</tr>
+<tr>
+<th scope="row" style="font-weight: 400;">Гранулярное облако, движущееся в пространстве</th>
+<td class="rpc"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" role="img" aria-label="есть"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"></path></svg></td><td><span class="no" aria-label="не заявлено">—</span></td><td><span class="no" aria-label="не заявлено">—</span></td><td><span class="no" aria-label="не заявлено">—</span></td><td><span class="no" aria-label="не заявлено">—</span></td><td><span class="no" aria-label="не заявлено">—</span></td><td><span class="no" aria-label="не заявлено">—</span></td><td><span class="no" aria-label="не заявлено">—</span></td>
+</tr>
+<tr>
+<th scope="row" style="font-weight: 400;">Винтажная окраска: шум, плёнка, плавание</th>
+<td class="rpc"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" role="img" aria-label="есть"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"></path></svg></td><td><span class="no" aria-label="не заявлено">—</span></td><td><span class="no" aria-label="не заявлено">—</span></td><td><span class="no" aria-label="не заявлено">—</span></td><td><span class="no" aria-label="не заявлено">—</span></td><td><svg width="18" height="18" viewBox="0 0 20 20" fill="none" role="img" aria-label="есть"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"></path></svg></td><td><svg width="18" height="18" viewBox="0 0 20 20" fill="none" role="img" aria-label="есть"><path d="M4 10.5l4 4 8-9" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"></path></svg></td><td><span class="no" aria-label="не заявлено">—</span></td>
+</tr>
+
+<tr class="tot">
+<th scope="row">Итого из шести</th>
+<td class="rpc">6</td><td>0</td><td>1</td><td>2</td><td>1</td><td>1</td><td>2</td><td>2</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p style="margin: 0; font-size: 15px; color: #555555; display: flex; align-items: center; gap: 6px; flex-wrap: wrap;"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10.5l4 4 8-9" stroke="#0B0B0B" stroke-width="2.4" stroke-linecap="square"></path></svg>- есть в официальном описании; — - не заявлено.</p>
+</section>
+
+<section class="sec" style="border-top: none; padding-top: 0; margin-top: calc(-1 * clamp(24px, 4vw, 64px));">
+<div class="sec-b" style="grid-column: 1 / -1;">
+<h3 class="h3 rv" style="font-size: 24px;">5.3. RedPolya против каждого конкурента</h3>
+<div class="tw rv">
+<table class="tbl t3" style="min-width: 760px;">
+<thead>
+<tr><th scope="col" style="width: 20%;">Конкурент</th><th scope="col" style="width: 26%;">Что умеет</th><th scope="col">Преимущество RedPolya</th></tr>
+</thead>
+<tbody>
+<tr><td>XLN Audio XO</td><td>Карта семплов, замена набора, грув</td><td>XO подбирает готовые семплы. RedPolya создаёт звук: синтез плюс свои семплы в одном ударе, MORPH и движение каждого голоса вокруг слушателя</td></tr>
+<tr><td>Sonic Charge Microtonic</td><td>Синтез, секвенсор, морфинг</td><td>Microtonic звучит в стерео и только синтезом. RedPolya добавляет свои семплы, 3D-движение, облако GRAIN и винтажный блок AGE</td></tr>
+<tr><td>Forever 89 Visco</td><td>Моделирование семплов, морфинг, секвенсор</td><td>Visco меняет тембр. RedPolya меняет ещё и место звука: голоса и облако GRAIN движутся вокруг слушателя, AGE даёт характер старой записи</td></tr>
+<tr><td>Unfiltered Audio Battalion</td><td>Синтез и семплы, гранулярная обработка, секвенсор</td><td>Гранулярность Battalion остаётся в стерео. В RedPolya облако GRAIN и каждый голос живут в пространстве вокруг слушателя</td></tr>
+<tr><td>Native Instruments Battery 4</td><td>Семплер с насыщением, LoFi и шумом</td><td>Battery работает с готовыми семплами. RedPolya синтезирует звук, меняет набор одной ручкой MORPH и двигает голоса в 3D</td></tr>
+<tr><td>Knight Drum 2</td><td>Синтез и семплы, состаривание звука</td><td>Knight Drum состаривает звук. RedPolya вдобавок превращает удары в протяжённые звуки через MORPH и двигает их вокруг слушателя</td></tr>
+<tr><td>Azimuth Drums</td><td>Браузерная драм-машина с бинауральным размещением</td><td>Azimuth работает в браузере. RedPolya - плагин для Logic Pro с синтезом, семплами, MORPH, облаком GRAIN и винтажным блоком AGE</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="sec" style="margin-top: 56px;">
+<div class="sec-h"><h3 class="h3 rv" style="font-size: 24px;">5.4. Вместо цепочки плагинов</h3></div>
+<div class="sec-b">
+<p class="p rv">Похожий результат без RedPolya собирают из нескольких продуктов:</p>
+<ul class="ul">
+<li class="rv"><span>драм-машина для бита;</span></li>
+<li class="rv"><span>RC-20 Retro Color для винтажной окраски;</span></li>
+<li class="rv"><span>SILO для гранулярных хвостов;</span></li>
+<li class="rv"><span>DUST или другой пространственный плагин для бинаурального размещения.</span></li>
+</ul>
+<p class="p rv">В RedPolya всё это встроено в драм-машину, работает в темпе бита и сохраняется в одном проекте.</p>
+</div>
+</div>
+
+<div class="sec" style="margin-top: 56px;">
+<div class="sec-h"><h3 class="h3 rv" style="font-size: 24px;">5.5. Главный тезис</h3></div>
+<div class="sec-b">
+<p class="box rv">RedPolya объединяет создание бита, винтажный характер и движение звуков вокруг слушателя. Музыкант собирает ритм и сразу слышит, как он звучит и где находятся его инструменты.</p>
+<p class="p rv"><strong>Ценность для покупателя:</strong> меньше окон и плагинов, одно сохранение для всех настроек и изменение звучания прямо во время воспроизведения.</p>
+</div>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer style="background: #0B0B0B; color: #F2F2EF; padding: 40px 0 28px; overflow: hidden;">
+<div class="wrap">
+<div class="mono" style="display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+<span>RedPolya · Маркетинговый обзор</span>
+<a href="#top" style="color: #F2F2EF;">Наверх ↑</a>
+</div>
+<p aria-hidden="true" style="margin: clamp(32px, 5vw, 64px) 0 0; font-size: clamp(72px, 19vw, 290px); font-weight: 800; letter-spacing: -0.07em; line-height: 0.78; text-align: center;">RedPolya</p>
+</div>
+</footer>
+
+</div>
+</body>
+</html>
