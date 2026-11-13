@@ -34,6 +34,15 @@ a{color:#0B0B0B}a:hover{color:#555555}
 .ph{margin:0}
 .ph .im{overflow:hidden;background:#0B0B0B}
 .ph img{display:block;width:100%;height:auto}
+.ph{perspective:1400px}
+.tilt{position:relative;transform-style:preserve-3d;transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .6s cubic-bezier(.16,1,.3,1);will-change:transform}
+.ph .im{border-radius:10px;box-shadow:0 40px 70px -30px rgba(0,0,0,.55),0 18px 36px -18px rgba(0,0,0,.35);transform-origin:50% 100%}
+.glare{position:absolute;inset:0;border-radius:10px;pointer-events:none;background:radial-gradient(circle at var(--gx,50%) var(--gy,30%),rgba(255,255,255,.28),rgba(255,255,255,0) 55%);opacity:0;transition:opacity .4s ease;mix-blend-mode:soft-light}
+.ph:hover .glare{opacity:1}
+@supports (animation-timeline: view()){
+.ph .im{animation:tiltIn linear both;animation-timeline:view();animation-range:entry 0% cover 45%}
+}
+@keyframes tiltIn{from{transform:rotateX(32deg) scale(.9) translateY(40px)}to{transform:none}}
 .ph figcaption{margin-top:12px;font-size:15px;line-height:1.5;color:#555555}
 .tw{overflow-x:auto;border-top:1px solid #0B0B0B}
 .tbl{width:100%;border-collapse:collapse;font-size:15px}
@@ -101,7 +110,7 @@ a{color:#0B0B0B}a:hover{color:#555555}
 <li class="rv"><span><strong>Винтаж встроен:</strong> плёнка, винил и пыль без отдельного плагина.</span></li>
 </ul>
 <figure class="ph rv">
-<div class="im"><img loading="lazy" src="images/overview.webp" alt="Интерфейс RedPolya: секвенсор, настройка голоса и положение вокруг слушателя" width="1560" height="1012"></div>
+<div class="tilt"><div class="im"><img loading="lazy" src="images/overview.webp" alt="Интерфейс RedPolya: секвенсор, настройка голоса и положение вокруг слушателя" width="1560" height="1012"></div><div class="glare" aria-hidden="true"></div></div>
 <figcaption class="serif">Всё в одном окне: секвенсор на восемь дорожек, настройка голоса и его положение вокруг слушателя.</figcaption>
 </figure>
 </div>
@@ -150,7 +159,7 @@ a{color:#0B0B0B}a:hover{color:#555555}
 <li class="rv"><span>Кнопка DICE выдаёт новое направление звучания. Номер варианта сохраняется с проектом, поэтому удачная находка не потеряется.</span></li>
 </ul>
 <figure class="ph rv">
-<div class="im"><img loading="lazy" src="images/morph.webp" alt="Панель MORPH: большая ручка, кнопки DICE и HOLD, выбор голосов" width="1560" height="1012"></div>
+<div class="tilt"><div class="im"><img loading="lazy" src="images/morph.webp" alt="Панель MORPH: большая ручка, кнопки DICE и HOLD, выбор голосов" width="1560" height="1012"></div><div class="glare" aria-hidden="true"></div></div>
 <figcaption class="serif">Одна большая ручка MORPH, кнопки DICE и HOLD и выбор голосов, которые за ней следуют.</figcaption>
 </figure>
 <p class="p rv"><strong>Почему это сильнее конкурентов:</strong> морфинг Microtonic и Visco меняет тембр. MORPH в RedPolya меняет ещё и длину звуков, их место в пространстве и грув.</p>
@@ -167,11 +176,11 @@ a{color:#0B0B0B}a:hover{color:#555555}
 <li class="rv"><span>В наушниках бит звучит объёмно, а не «внутри головы».</span></li>
 </ul>
 <figure class="ph rv">
-<div class="im"><img loading="lazy" src="images/space-orbit.webp" alt="Панель SPATIAL POSITION: вид сверху и сбоку, хэт на орбите" width="1560" height="1012"></div>
+<div class="tilt"><div class="im"><img loading="lazy" src="images/space-orbit.webp" alt="Панель SPATIAL POSITION: вид сверху и сбоку, хэт на орбите" width="1560" height="1012"></div><div class="glare" aria-hidden="true"></div></div>
 <figcaption class="serif">Каждый голос ставится мышью на виде сверху и сбоку. Хэт движется по орбите в такт биту.</figcaption>
 </figure>
 <figure class="ph rv">
-<div class="im"><img loading="lazy" src="images/grain-3d.webp" alt="Панель GRAIN / CLOUD: посылы голосов и режим движения" width="1560" height="1012"></div>
+<div class="tilt"><div class="im"><img loading="lazy" src="images/grain-3d.webp" alt="Панель GRAIN / CLOUD: посылы голосов и режим движения" width="1560" height="1012"></div><div class="glare" aria-hidden="true"></div></div>
 <figcaption class="serif">Облако GRAIN: посыл с каждого голоса и режим движения частиц в пространстве.</figcaption>
 </figure>
 <p class="p rv"><strong>Почему это сильнее конкурентов:</strong> из драм-машин в сравнении размещение голосов вокруг слушателя есть только у браузерной Azimuth Drums. RedPolya даёт это в Logic Pro и добавляет движущееся облако GRAIN, которого нет ни у кого.</p>
@@ -188,7 +197,7 @@ a{color:#0B0B0B}a:hover{color:#555555}
 <li class="rv"><span>Настройки сохраняются вместе с проектом и пресетом.</span></li>
 </ul>
 <figure class="ph rv">
-<div class="im"><img loading="lazy" src="images/age.webp" alt="Панель AGE: большая ручка и пять секций состаривания" width="1560" height="1012"></div>
+<div class="tilt"><div class="im"><img loading="lazy" src="images/age.webp" alt="Панель AGE: большая ручка и пять секций состаривания" width="1560" height="1012"></div><div class="glare" aria-hidden="true"></div></div>
 <figcaption class="serif">Большая ручка AGE и пять секций состаривания с выбором характера.</figcaption>
 </figure>
 <p class="p rv"><strong>Почему это сильнее конкурентов:</strong> Battery 4 и Knight Drum 2 тоже умеют состаривать звук, но в них нет ни MORPH, ни движения голосов вокруг слушателя. В RedPolya винтаж работает вместе со всем остальным.</p>
@@ -320,5 +329,24 @@ a{color:#0B0B0B}a:hover{color:#555555}
 </footer>
 
 </div>
+<script>
+(function(){
+  if (window.matchMedia('(hover: none), (prefers-reduced-motion: reduce)').matches) return;
+  document.querySelectorAll('.ph').forEach(function(f){
+    var t = f.querySelector('.tilt'); if (!t) return;
+    f.addEventListener('pointermove', function(e){
+      var r = t.getBoundingClientRect();
+      var x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+      t.style.setProperty('--ry', ((x - .5) * 12).toFixed(2) + 'deg');
+      t.style.setProperty('--rx', ((.5 - y) * 9).toFixed(2) + 'deg');
+      t.style.setProperty('--gx', (x * 100).toFixed(1) + '%');
+      t.style.setProperty('--gy', (y * 100).toFixed(1) + '%');
+    });
+    f.addEventListener('pointerleave', function(){
+      t.style.setProperty('--rx', '0deg'); t.style.setProperty('--ry', '0deg');
+    });
+  });
+})();
+</script>
 </body>
 </html>
